@@ -4,39 +4,69 @@
     <meta charset="utf-8" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="site.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/site.css"
+    />
   </head>
+
   <body>
     <header>
-      <span class="container">
+      <div class="container">
         <img #logo src="Content/images/logo.png" /> <span class="spacer"></span>
         <nav>
+          <!--
+            <ul class="nav navbar-nav">
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("About", "About", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+          -->
           <ul>
-            <li><a href="">HOME</a></li>
-            <li><a href="">ABOUT</a></li>
-            <li><a href="">BLOG</a></li>
-            <li><a href="">CONTACT</a></li>
+            <li><a href="#" class="active">HOME</a></li>
+            <li>
+              <a href="#">ABOUT</a>
+              <ul>
+                <li><a href="">PRODUCT</a></li>
+                <li><a href="">PRODUCT</a></li>
+                <li><a href="">PRODUCT</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">BLOG</a>
+              <ul>
+                <li><a href="#">SINGLE POST</a></li>
+              </ul>
+            </li>
+            <li><a href="#">CONTACT</a></li>
           </ul>
         </nav>
-      </span>
+      </div>
     </header>
     <main>
-      <div>
-        <img
-          src="Content/images/bg-home.jpg"
-          alt="Yoghurt iceream, sprinkled over with a variety f ofruits, finished with a touch of mint."
-        />
-        <a href="@Url.Action()">FREEZE DELIGHT</a>
-      </div>
-      <div>
-        <h1>NEW PRODUCT</h1>
-        <h2>The Twist Of Healthy Yoghurt</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur
-          ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien.
-          Integer vulputate sem a nibh rutrum consequat. Nullam eget nisl. Fusce
-        </p>
-      </div>
+      <header>
+        <div>
+          <img
+            src="Content/images/bg-home.jpg"
+            alt="Yoghurt iceream, sprinkled over with a variety f ofruits, finished with a touch of mint."
+          />
+          <a href="#">FREEZE DELIGHT</a>
+        </div>
+      </header>
+      <article>
+        <div>
+          <h1>NEW PRODUCT</h1>
+          <h2>The Twist Of Healthy Yoghurt</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur
+            ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien.
+            Integer vulputate sem a nibh rutrum consequat. Nullam eget nisl.
+            Fusce
+          </p>
+        </div>
+      </article>
     </main>
     <footer></footer>
   </body>
