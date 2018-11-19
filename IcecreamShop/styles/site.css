@@ -1,4 +1,4 @@
-body > header .container, article > div {
+body > header .wrapper, article > div {
   max-width: 960px;
   margin: 0px auto; }
 
@@ -8,31 +8,31 @@ body {
   background-color: #f8f8f8; }
   body > header {
     padding: 41px 10px 27px;
-    background-color: #eeebec; }
-    body > header .container {
+    background-color: #eae7e8; }
+    body > header .wrapper {
       display: flex;
       flex-flow: row nowrap; }
-      body > header .container .spacer {
+      body > header .wrapper .spacer {
         flex-grow: 1; }
-      body > header .container img {
+      body > header .wrapper img {
         height: 36px; }
-      body > header .container nav ul {
+      body > header .wrapper nav ul {
         list-style: none; }
-      body > header .container nav > ul {
+      body > header .wrapper nav > ul {
         display: flex;
         flex-flow: row nowrap; }
-        body > header .container nav > ul > li {
+        body > header .wrapper nav > ul > li {
           text-align: center;
           padding: 0 35px; }
-          body > header .container nav > ul > li ul {
+          body > header .wrapper nav > ul > li ul {
             position: absolute;
             padding: 0; }
-            body > header .container nav > ul > li ul li {
+            body > header .wrapper nav > ul > li ul li {
               visibility: hidden;
-              background-color: #eeebec;
+              background-color: #eae7e8;
               pad: 5px;
               border-radius: 1px; }
-          body > header .container nav > ul > li:hover ul li {
+          body > header .wrapper nav > ul > li:hover ul li {
             visibility: visible; }
   body main header div {
     max-width: 1126px;
@@ -71,7 +71,13 @@ header h1 {
   text-transform: uppercase; }
 
 article {
-  background-color: #eeebec; }
+  background-color: #eae7e8; }
+  article > div {
+    display: flex;
+    flex-flow: row nowrap; }
+    article > div > div {
+      max-width: 560px;
+      padding-left: 40px; }
   article h1 {
     color: #7a6666;
     font-size: 18px;
