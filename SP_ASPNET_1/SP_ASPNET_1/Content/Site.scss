@@ -1,24 +1,247 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 30px;
+@import './settings';
+
+%contain {
+  max-width: 960px;
+  margin: 0px auto;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+footer {
+  & > div:nth-child(1) {
+    background-color: $kiwi-color;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin: 0;
+      padding: 36px 0 32px;
+    }
+
+    a {
+      background: url(../Content/images/icons.png) no-repeat;
+      display: block;
+      height: 44px;
+      margin: 0 auto 22px;
+      padding: 0;
+      width: 80px;
+
+      &.product {
+        background-position: 0 -372px;
+      }
+
+      &.about {
+        background-position: 0 -418px;
+      }
+
+      &.flavour {
+        background-position: 0 -280px;
+      }
+
+      &.contact {
+        background-position: 0 -326px;
+      }
+    }
+  }
+  & > div:nth-child(2) {
+    background-color: $magenta-color;
+
+    & > div {
+      padding: 59px 0 13px;
+
+      .social {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+      }
+      text-align: center;
+      p {
+        padding: 33px 0 50px;
+        color: $white-color;
+      }
+    }
+
+    a {
+      background: url(../Content/images/icons.png) no-repeat;
+      height: 30px;
+      margin: 0 15px;
+      padding: 0;
+      width: 30px;
+
+      &.facebook {
+        background-position: 0 0;
+      }
+      &.googleplus {
+        background-position: 0 -32px;
+      }
+      &.pinterest {
+        background-position: 0 -64px;
+      }
+      &.twitter {
+        background-position: 0 -96px;
+      }
+    }
+  }
+  & .container {
+    @extend %contain;
+
+    h1 {
+      color: $white-color;
+      text-transform: uppercase;
+      margin: 0;
+      font-size: 20px;
+    }
+  }
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #f8f8f8;
+
+  & > header {
+    padding: 41px 10px 27px;
+    background-color: $lightGrey-color;
+
+    & .wrapper {
+      @extend %contain;
+
+      display: flex;
+      flex-flow: row nowrap;
+      .spacer {
+        flex-grow: 1;
+      }
+
+      img {
+        height: 36px;
+      }
+
+      nav {
+        ul {
+          list-style: none;
+        }
+        & > ul {
+          display: flex;
+          flex-flow: row nowrap;
+
+          & > li {
+            text-align: center;
+            padding: 0 35px;
+            ul {
+              position: absolute;
+              padding: 0;
+              li {
+                visibility: hidden;
+                background-color: $lightGrey-color;
+                padding: 5px;
+                border-radius: 1px;
+              }
+            }
+            &:hover {
+              ul {
+                li {
+                  visibility: visible;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    header {
+      div {
+        max-width: 1126px;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+        a {
+          &:hover {
+            color: white;
+          }
+          background: url(../Content/images/icons.png) no-repeat 0 -128px;
+          position: absolute;
+          color: $white-color;
+          font-size: 24px;
+          padding: 52px 0 0;
+          height: 99px;
+          width: 156px;
+          bottom: 50px;
+          right: 100px;
+        }
+      }
+    }
+  }
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+a {
+  text-decoration: none;
+  color: $darkGrey-color;
+  &:hover {
+    color: $kiwi-color;
+  }
+
+  &.active {
+    color: $magenta-color;
+  }
+}
+
+header {
+  h1 {
+    color: $white-color;
+    font-family: $mainHeading-font;
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0;
+    padding: 28px 0 23px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+article {
+    background-color: $lightGrey-color;
+
+    & > div {
+        @extend %contain;
+        display: flex;
+        flex-flow: row nowrap;
+
+        & > div {
+            max-width: 560px;
+            padding-left: 40px;
+        }
+    }
+
+    h1 {
+        color: $darkGrey-color;
+        font-size: 18px;
+        font-family: $mainArticleH1-font;
+        padding: 47px 0 18px;
+        text-transform: uppercase;
+        text-align: left;
+        margin: 0;
+        font-weight: normal;
+        display: block;
+    }
+
+    h2 {
+        font-family: $mainArticleH2-font;
+        color: $magenta-color;
+        display: block;
+        font-size: 30px;
+        font-weight: normal;
+        margin: 0;
+        padding: 0 0 26px;
+        text-align: left;
+    }
+
+
+}
+
+p {
+    color: $darkGrey-color;
 }

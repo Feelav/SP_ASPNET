@@ -10,57 +10,71 @@
 <body>
 
     <header>
-        <img #logo src="~/Content/images/logo.png" />
-        <span class="spacer" />
-        <ul>
-            <li>HOME</li>
-            <li>ABOUT</li>
-            <li>BLOG</li>
-            <li>CONTACT</li>
-        </ul>
+        <div class="wrapper">
+            <img #logo src="~/Content/images/logo.png" /> <span class="spacer"></span>
+            <nav>
+                
+                @*<ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>*@
+                
+                <ul>
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li>
+                        <a href="#">ABOUT</a>
+                        <ul>
+                            <li><a href="">PRODUCT</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">BLOG</a>
+                        <ul>
+                            <li><a href="#">SINGLE POST</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
+    @RenderBody()
+    <footer>
         <div>
-            <img src="~/Content/images/bg-home.jpg" alt="Yoghurt iceream, sprinkled over with a variety f ofruits, finished with a touch of mint." />
-            <a href="@Url.Action()">FREEZE DELIGHT</a>
-        </div>
-        <div>
-            <h1>NEW PRODUCT</h1>
-            <h2>The Twist Of Healthy Yoghurt</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur
-                ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien.
-                Integer vulputate sem a nibh rutrum consequat. Nullam eget nisl. Fusce
-            </p>
-        </div>
-    </main>
-    <footer></footer>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="container">
+                <ul>
+                    <li>
+                        <a class="product" href="#"></a>
+                        <h1>Products</h1>
+                    </li>
+                    <li>
+                        <a class="about" href="#"></a>
+                        <h1>Our Story</h1>
+                    </li>
+                    <li>
+                        <a class="flavour" href="#"></a>
+                        <h1>Flavours</h1>
+                    </li>
+                    <li>
+                        <a class="contact" href="#"></a>
+                        <h1>Our Location</h1>
+                    </li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div>
+            <div class="container">
+                <div class="social">
+                    <a href="#" class="facebook"></a>
+                    <a href="#" class="googleplus"></a>
+                    <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
+                </div>
+                <p>© 2023 FeelaV. All Rights Nonreserved.</p>
+                <div style="height: 100px;"></div>
+            </div>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
