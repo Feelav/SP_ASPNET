@@ -26,5 +26,18 @@ namespace SP_ASPNET_1.Controllers
 
             return View();
         }
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult SinglePost()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
