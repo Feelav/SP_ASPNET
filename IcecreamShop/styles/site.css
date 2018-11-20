@@ -1,6 +1,64 @@
-body > header .wrapper, article > div {
+footer .container, body > header .wrapper, article > div {
   max-width: 960px;
   margin: 0px auto; }
+
+footer > div:nth-child(1) {
+  background-color: #c8c10d; }
+  footer > div:nth-child(1) ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 36px 0 32px; }
+  footer > div:nth-child(1) a {
+    background: url(../Content/images/icons.png) no-repeat;
+    display: block;
+    height: 44px;
+    margin: 0 auto 22px;
+    padding: 0;
+    width: 80px; }
+    footer > div:nth-child(1) a.product {
+      background-position: 0 -372px; }
+    footer > div:nth-child(1) a.about {
+      background-position: 0 -418px; }
+    footer > div:nth-child(1) a.flavour {
+      background-position: 0 -280px; }
+    footer > div:nth-child(1) a.contact {
+      background-position: 0 -326px; }
+
+footer > div:nth-child(2) {
+  background-color: #e32a62; }
+  footer > div:nth-child(2) > div {
+    padding: 59px 0 13px;
+    text-align: center; }
+    footer > div:nth-child(2) > div .social {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center; }
+    footer > div:nth-child(2) > div p {
+      padding: 33px 0 50px;
+      color: #fff; }
+  footer > div:nth-child(2) a {
+    background: url(../Content/images/icons.png) no-repeat;
+    height: 30px;
+    margin: 0 15px;
+    padding: 0;
+    width: 30px; }
+    footer > div:nth-child(2) a.facebook {
+      background-position: 0 0; }
+    footer > div:nth-child(2) a.googleplus {
+      background-position: 0 -32px; }
+    footer > div:nth-child(2) a.pinterest {
+      background-position: 0 -64px; }
+    footer > div:nth-child(2) a.twitter {
+      background-position: 0 -96px; }
+
+footer .container h1 {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 20px; }
 
 body {
   margin: 0;

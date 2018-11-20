@@ -5,6 +5,95 @@
   margin: 0px auto;
 }
 
+footer {
+  & > div:nth-child(1) {
+    background-color: $kiwi-color;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin: 0;
+      padding: 36px 0 32px;
+    }
+
+    a {
+      background: url(../Content/images/icons.png) no-repeat;
+      display: block;
+      height: 44px;
+      margin: 0 auto 22px;
+      padding: 0;
+      width: 80px;
+
+      &.product {
+        background-position: 0 -372px;
+      }
+
+      &.about {
+        background-position: 0 -418px;
+      }
+
+      &.flavour {
+        background-position: 0 -280px;
+      }
+
+      &.contact {
+        background-position: 0 -326px;
+      }
+    }
+  }
+  & > div:nth-child(2) {
+    background-color: $magenta-color;
+
+    & > div {
+      padding: 59px 0 13px;
+
+      .social {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+      }
+      text-align: center;
+      p {
+        padding: 33px 0 50px;
+        color: $white-color;
+      }
+    }
+
+    a {
+      background: url(../Content/images/icons.png) no-repeat;
+      height: 30px;
+      margin: 0 15px;
+      padding: 0;
+      width: 30px;
+
+      &.facebook {
+        background-position: 0 0;
+      }
+      &.googleplus {
+        background-position: 0 -32px;
+      }
+      &.pinterest {
+        background-position: 0 -64px;
+      }
+      &.twitter {
+        background-position: 0 -96px;
+      }
+    }
+  }
+  & .container {
+    @extend %contain;
+
+    h1 {
+      color: $white-color;
+      text-transform: uppercase;
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -86,11 +175,6 @@ body {
       }
     }
   }
-  footer {
-    & > div {
-      @extend %contain;
-    }
-  }
 }
 
 a {
@@ -119,6 +203,8 @@ header {
 }
 
 article {
+  background-color: $lightGrey-color;
+
   & > div {
     @extend %contain;
 
@@ -130,7 +216,7 @@ article {
       padding-left: 40px;
     }
   }
-  background-color: $lightGrey-color;
+
   h1 {
     color: $darkGrey-color;
     font-size: 18px;
