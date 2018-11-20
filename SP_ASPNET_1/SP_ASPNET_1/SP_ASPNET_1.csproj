@@ -138,6 +138,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <None Include="Content\_edgeFade.scss" />
+    <Content Include="Content\images\bg-header-about.jpg" />
+    <Content Include="Content\images\bg-home.jpg" />
+    <Content Include="Content\images\icons.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\yogurt.jpg" />
     <Content Include="Content\Site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
@@ -154,6 +160,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\_settings.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
