@@ -39,32 +39,7 @@
             </nav>
         </div>
     </header>
-    <main>
-        <header>
-            <div>
-                <img
-                    src="~/Content/images/bg-home.jpg"
-                    alt="Yoghurt iceream, sprinkled over with a variety f ofruits, finished with a touch of mint."
-                />
-                <a href="#">FREEZE DELIGHT</a>
-            </div>
-        </header>
-        <article>
-            <div>
-                <div>
-                    <h1>NEW PRODUCT</h1>
-                    <h2>The Twist Of Healthy Yoghurt</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                        Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel
-                        sapien. Integer vulputate sem a nibh rutrum consequat. Nullam eget
-                        nisl. Fusce
-                    </p>
-                </div>
-                <img src="~/Content/images/yogurt.jpg" alt="" />
-            </div>
-        </article>
-    </main>
+    @RenderBody()
     <footer>
         <div>
             <div class="container">
@@ -104,6 +79,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @RenderBody();
 </body>
 </html>

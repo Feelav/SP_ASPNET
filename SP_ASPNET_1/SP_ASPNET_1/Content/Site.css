@@ -88,7 +88,7 @@ body {
             body > header .wrapper nav > ul > li ul li {
               visibility: hidden;
               background-color: #eae7e8;
-              pad: 5px;
+              padding: 5px;
               border-radius: 1px; }
           body > header .wrapper nav > ul > li:hover ul li {
             visibility: visible; }
@@ -155,3 +155,6 @@ article {
     margin: 0;
     padding: 0 0 26px;
     text-align: left; }
+
+p {
+  color: #7a6666; }
