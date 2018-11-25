@@ -24,7 +24,7 @@ namespace SP_ASPNET_1
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      //"~/Content/bootstrap.css",
-                     "~/Content/site.min.css"));
+                     "~/Content/css/site.min.css"));
         }
     }
 }

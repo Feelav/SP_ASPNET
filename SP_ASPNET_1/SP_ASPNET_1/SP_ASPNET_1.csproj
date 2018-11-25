@@ -138,29 +138,39 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <None Include="Content\_edgeFade.scss" />
+    <Content Include="Content\css\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Site.scss" />
+    <Content Include="Content\css\base\_settings.scss" />
     <Content Include="Content\images\bg-header-about.jpg" />
     <Content Include="Content\images\bg-home.jpg" />
     <Content Include="Content\images\icons.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\yogurt.jpg" />
-    <Content Include="Content\Site.css">
-      <DependentUpon>site.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Site.min.css">
-      <DependentUpon>Site.css</DependentUpon>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\site.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\_settings.scss" />
+    <Content Include="Content\css\components\_button.scss" />
+    <Content Include="Content\css\components\_master.scss" />
+    <Content Include="Content\css\base\_master.scss" />
+    <Content Include="Content\css\vendor\_edgeFade.scss" />
+    <Content Include="Content\css\vendor\_master.scss" />
+    <Content Include="Content\css\layout\_master.scss" />
+    <Content Include="Content\css\layout\_header.scss" />
+    <Content Include="Content\css\base\_typography.scss" />
+    <Content Include="Content\css\layout\_body.scss" />
+    <Content Include="Content\css\pages\_home.scss" />
+    <Content Include="Content\css\pages\master.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

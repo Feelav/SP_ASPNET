@@ -1,0 +1,22 @@
+﻿.header__picture {
+    max-width: 1126px;
+    margin: 0px auto;
+    position: relative;
+    text-align: center;
+
+    a {
+        &:hover {
+            color: white;
+        }
+
+        background: url(/Content/images/icons.png) no-repeat 0 -128px;
+        position: absolute;
+        color: $white-color;
+        font-size: 24px;
+        padding: 52px 0 0;
+        height: 99px;
+        width: 156px;
+        bottom: 50px;
+        right: 100px;
+    }
+}

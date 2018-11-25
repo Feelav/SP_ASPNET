@@ -1,4 +1,35 @@
-﻿.faded {
+﻿/*@font-face {
+    font-family: 'Lato';
+    src: url(../fonts/lato-regular-webfont.woff);
+}*/
+* {
+  font-family: lato-regular-webfont, sans-serif; }
+
+h1, h2, h3 {
+  font-weight: bold; }
+
+h1 {
+  background-color: #c8c10d;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 32px 0;
+  margin: 0;
+  margin: 0; }
+
+h2 {
+  text-transform: uppercase;
+  color: #E32A62;
+  font-size: 28px; }
+
+h3 {
+  text-transform: uppercase;
+  font-size: 16px; }
+
+.title {
+  margin-bottom: 21px; }
+
+.faded {
   position: relative;
   display: inline-block;
   color: white; }
@@ -112,6 +143,55 @@
 img {
   max-width: 100%; }
 
+.c-btn {
+  padding: 10px 20px;
+  background-color: white;
+  height: 40px;
+  width: 160px;
+  border: 2px solid #cbb5bc;
+  text-transform: uppercase; }
+  .c-btn:hover {
+    background-color: #e32a62; }
+
+ul li .c-btn {
+  background-color: #c8c10d; }
+
+.header {
+  padding: 41px 10px 27px; }
+  .header h1 {
+    color: #fff;
+    font-family: lato-regular-webfont;
+    font-size: 30px;
+    margin: 0;
+    padding: 28px 0 23px;
+    text-align: center;
+    text-transform: uppercase; }
+
+.body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center; }
+  .body *:not(.body__block) {
+    max-width: 960px; }
+
+.header__picture {
+  max-width: 1126px;
+  margin: 0px auto;
+  position: relative;
+  text-align: center; }
+  .header__picture a {
+    background: url(/Content/images/icons.png) no-repeat 0 -128px;
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    padding: 52px 0 0;
+    height: 99px;
+    width: 156px;
+    bottom: 50px;
+    right: 100px; }
+    .header__picture a:hover {
+      color: white; }
+
 .contained, .container, body > header .wrapper, article > div {
   max-width: 960px;
   margin: 0px auto; }
@@ -179,7 +259,7 @@ p, div {
     margin: 0;
     padding: 36px 0 32px; }
   .homeFooter a {
-    background: url(images/icons.png) no-repeat;
+    background: url("/Content/images/icons.png") no-repeat;
     display: block;
     height: 44px;
     margin: 0 auto 22px;
@@ -207,7 +287,7 @@ footer > div {
       padding: 33px 0 50px;
       color: #fff; }
   footer > div a {
-    background: url(images/icons.png) no-repeat;
+    background: url(/Content/images/icons.png) no-repeat;
     height: 30px;
     margin: 0 15px;
     padding: 0;
@@ -253,24 +333,6 @@ body {
               border-radius: 1px; }
           body > header .wrapper nav > ul > li:hover ul li {
             visibility: visible; }
-
-.homeHeaderPicture {
-  max-width: 1126px;
-  margin: 0px auto;
-  position: relative;
-  text-align: center; }
-  .homeHeaderPicture a {
-    background: url(images/icons.png) no-repeat 0 -128px;
-    position: absolute;
-    color: #fff;
-    font-size: 24px;
-    padding: 52px 0 0;
-    height: 99px;
-    width: 156px;
-    bottom: 50px;
-    right: 100px; }
-    .homeHeaderPicture a:hover {
-      color: white; }
 
 a {
   text-decoration: none;

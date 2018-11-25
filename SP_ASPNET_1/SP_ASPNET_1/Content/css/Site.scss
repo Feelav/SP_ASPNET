@@ -1,5 +1,8 @@
-@import './settings';
-@import './edgeFade.scss';
+@import "./base/master.scss";
+@import "./vendor/master.scss";
+@import "./components/master.scss";
+@import "./layout/master.scss";
+@import "./pages/master.scss";
 
 .contained {
   max-width: 960px;
@@ -96,7 +99,7 @@ p, div {
     }
 
     a {
-        background: url(../Content/images/icons.png) no-repeat;
+        background: url($icon-path) no-repeat;
         display: block;
         height: 44px;
         margin: 0 auto 22px;
@@ -142,7 +145,7 @@ footer {
     }
 
     a {
-      background: url(../Content/images/icons.png) no-repeat;
+      background: url(/Content/images/icons.png) no-repeat;
       height: 30px;
       margin: 0 15px;
       padding: 0;
@@ -224,28 +227,6 @@ body {
 
 }
 
-.homeHeaderPicture {
-    max-width: 1126px;
-    margin: 0px auto;
-    position: relative;
-    text-align: center;
-
-    a {
-        &:hover {
-            color: white;
-        }
-
-        background: url(../Content/images/icons.png) no-repeat 0 -128px;
-        position: absolute;
-        color: $white-color;
-        font-size: 24px;
-        padding: 52px 0 0;
-        height: 99px;
-        width: 156px;
-        bottom: 50px;
-        right: 100px;
-    }
-}
 
 a {
   text-decoration: none;
