@@ -171,7 +171,7 @@
     <Content Include="Content\css\layout\_body.scss" />
     <Content Include="Content\css\pages\_home.scss" />
     <Content Include="Content\css\pages\master.scss" />
-    <Content Include="Content\css\components\_navbar.scss" />
+    <Content Include="Content\css\pages\_about.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

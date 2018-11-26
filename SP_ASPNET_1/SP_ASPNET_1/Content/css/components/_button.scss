@@ -6,12 +6,11 @@
     border: 2px solid #cbb5bc;
     text-transform: uppercase;
 
-    &:hover{
-        background-color: $magenta-color;
-
+    &:hover {
+        background-color: $color-primary;
     }
 }
 
 ul li .c-btn {
-    background-color: $kiwi-color;
+    background-color: $color-accent;
 }

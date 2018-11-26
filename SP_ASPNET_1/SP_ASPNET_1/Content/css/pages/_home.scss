@@ -1,4 +1,4 @@
-﻿.header__picture {
+﻿.flier-picture {
     max-width: 1126px;
     margin: 0px auto;
     position: relative;
@@ -11,7 +11,7 @@
 
         background: url(/Content/images/icons.png) no-repeat 0 -128px;
         position: absolute;
-        color: $white-color;
+        color: $white;
         font-size: 24px;
         padding: 52px 0 0;
         height: 99px;
@@ -22,7 +22,7 @@
 }
 
 .home__footer {
-    background-color: $kiwi-color;
+    background-color: $color-accent;
 
     ul {
         width: 960px;

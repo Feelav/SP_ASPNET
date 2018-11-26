@@ -4,86 +4,34 @@
 @import "./layout/master.scss";
 @import "./pages/master.scss";
 
-/*.contained {
-  max-width: 960px;
-  margin: 0px auto;
-}*/
-
-.xCentered {
-  text-align: center;
-}
-
-.grey-background {
-  background: $lightGrey-color;
-}
-
+// HACK->
 img {
-  vertical-align: middle;
+    vertical-align: middle;
 }
-
-h1 {
-    font-weight: normal;
-}
-
-.container {
-  /*@extend .contained;*/
-
-  h1 {
-    color: $white-color;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 20px;
-  }
-}
-.aboutBody {
-    padding: 40px 0 110px;
-}
-
-.aboutMain {
+//<-
+%centered {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+    align-items: center;
+}
 
-    h1 {
-        color: $magenta-color;
-        font-family: $mainHeading-font;
-        font-size: 24px;
-        padding: 0 0 27px;
-        text-transform: uppercase;
-        text-align: left;
-        margin: 0 auto 0 auto;
-    }
+aside {
+    padding: 36px 0 34px;
+    line-height: 48px;
+    width: 280px;
+    background-color: $gray;
+    text-align: center;
 
     p {
-        padding: 0 0 24px;
+        width: 169px;
+        margin: 0 auto;
     }
 
-    main {
-        max-width: 560px;
-        padding: 0 0 0 30px;
-    }
-
-    & > aside {
-        padding: 36px 0 34px;
-        line-height: 48px;
-        width: 280px;
-        background-color: $lightGrey-color;
+    & > h1 {
         text-align: center;
-
-        p {
-            width: 169px;
-            margin: 0 auto;
-        }
-
-        & > h1 {
-            text-align: center;
-            width: 205px;
-        }
+        width: 205px;
     }
 }
-
-/*p, div {
-    color: $darkGrey-color;
-}*/
 
 footer {
 
@@ -101,7 +49,7 @@ footer {
       text-align: center;
       p {
         padding: 33px 0 50px;
-        color: $white-color;
+        color: $white;
       }
     }
 
@@ -135,66 +83,16 @@ body {
   background-color: #f8f8f8;
 }
 
-
 a {
-  text-decoration: none;
-  color: $darkGrey-color;
-  &:hover {
-    color: $kiwi-color;
-  }
+    text-decoration: none;
+    color: $color-text;
 
-  &.active {
-    color: $magenta-color;
-  }
-}
-
-header {
-  h1 {
-    color: $white-color;
-    font-family: $mainHeading-font;
-    font-size: 30px;    
-    margin: 0;
-    padding: 28px 0 23px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-}
-
-article {
-  background-color: $lightGrey-color;
-
-  & > div {
-    /*@extend .contained;*/
-
-    display: flex;
-    flex-flow: row nowrap;
-
-    & > div {
-      max-width: 560px;
-      padding-left: 40px;
+    &:hover {
+        color: $color-accent;
     }
-  }
 
-  h1 {
-    color: $darkGrey-color;
-    font-size: 18px;
-    font-family: $mainArticleH1-font;
-    padding: 47px 0 18px;
-    text-transform: uppercase;
-    text-align: left;
-    margin: 0;
-    font-weight: normal;
-    display: block;
-  }
-
-  h2 {
-    font-family: $mainArticleH2-font;
-    color: $magenta-color;
-    display: block;
-    font-size: 30px;
-    font-weight: normal;
-    margin: 0;
-    padding: 0 0 26px;
-    text-align: left;
-  }
+    &.active {
+        color: $color-primary;
+    }
 }
+
