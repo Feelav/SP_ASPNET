@@ -4,10 +4,10 @@
 @import "./layout/master.scss";
 @import "./pages/master.scss";
 
-.contained {
+/*.contained {
   max-width: 960px;
   margin: 0px auto;
-}
+}*/
 
 .xCentered {
   text-align: center;
@@ -26,7 +26,7 @@ h1 {
 }
 
 .container {
-  @extend .contained;
+  /*@extend .contained;*/
 
   h1 {
     color: $white-color;
@@ -81,48 +81,9 @@ h1 {
     }
 }
 
-p, div {
+/*p, div {
     color: $darkGrey-color;
-}
-
-
-.homeFooter {
-    background-color: $kiwi-color;
-
-    ul {
-        list-style: none;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        margin: 0;
-        padding: 36px 0 32px;
-    }
-
-    a {
-        background: url($icon-path) no-repeat;
-        display: block;
-        height: 44px;
-        margin: 0 auto 22px;
-        padding: 0;
-        width: 80px;
-
-        &.product {
-            background-position: 0 -372px;
-        }
-
-        &.about {
-            background-position: 0 -418px;
-        }
-
-        &.flavour {
-            background-position: 0 -280px;
-        }
-
-        &.contact {
-            background-position: 0 -326px;
-        }
-    }
-}
+}*/
 
 footer {
 
@@ -172,59 +133,6 @@ body {
   padding: 0;
 
   background-color: #f8f8f8;
-
-  & > header {
-    padding: 41px 10px 27px;
-    background-color: $lightGrey-color;
-
-    & .wrapper {
-      @extend .contained;
-
-      display: flex;
-      flex-flow: row nowrap;
-      .spacer {
-        flex-grow: 1;
-      }
-
-      img {
-        height: 36px;
-      }
-
-      nav {
-        ul {
-          list-style: none;
-        }
-        & > ul {
-          display: flex;
-          flex-flow: row nowrap;
-
-          & > li {
-            text-align: center;
-            padding: 0 35px;
-            ul {
-              position: absolute;
-              padding: 0;
-              li {
-                visibility: hidden;
-                background-color: $lightGrey-color;
-                padding: 5px;
-                border-radius: 1px;
-              }
-            }
-            &:hover {
-              ul {
-                li {
-                  visibility: visible;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-
 }
 
 
@@ -256,7 +164,7 @@ article {
   background-color: $lightGrey-color;
 
   & > div {
-    @extend .contained;
+    /*@extend .contained;*/
 
     display: flex;
     flex-flow: row nowrap;

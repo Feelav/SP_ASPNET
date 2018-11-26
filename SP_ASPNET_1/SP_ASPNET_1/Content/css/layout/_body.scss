@@ -3,7 +3,7 @@
     flex-flow: column nowrap;
     align-items: center;
 
-    *:not(.body__block){
+    & >  *:not(.body__block){
         max-width: 960px;
     }
 }

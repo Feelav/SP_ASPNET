@@ -4,7 +4,7 @@
     position: relative;
     text-align: center;
 
-    a {
+    & > a {
         &:hover {
             color: white;
         }
@@ -18,5 +18,44 @@
         width: 156px;
         bottom: 50px;
         right: 100px;
+    }
+}
+
+.home__footer {
+    background-color: $kiwi-color;
+
+    ul {
+        width: 960px;
+        list-style: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 36px 0 32px;
+    }
+
+    a {
+        background: url($icon-path) no-repeat;
+        display: block;
+        height: 44px;
+        margin: 0 auto 22px;
+        padding: 0;
+        width: 80px;
+
+        &.product {
+            background-position: 0 -372px;
+        }
+
+        &.about {
+            background-position: 0 -418px;
+        }
+
+        &.flavour {
+            background-position: 0 -280px;
+        }
+
+        &.contact {
+            background-position: 0 -326px;
+        }
     }
 }

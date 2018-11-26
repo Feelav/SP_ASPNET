@@ -1,13 +1,57 @@
 ﻿.header {
     padding: 41px 10px 27px;
+    background-color: $lightGrey-color;
+    display: flex;
+    justify-content: center;
 
-    h1 {
-        color: $white-color;
-        font-family: $mainHeading-font;
-        font-size: 30px;
-        margin: 0;
-        padding: 28px 0 23px;
-        text-align: center;
-        text-transform: uppercase;
+
+    .header__navbar {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 960px;
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        img {
+            height: 36px;
+        }
+
+        nav {
+            ul {
+                list-style: none;
+            }
+
+            & > ul {
+                display: flex;
+                flex-flow: row nowrap;
+
+                & > li {
+                    text-align: center;
+                    padding: 0 35px;
+
+                    ul {
+                        position: absolute;
+                        padding: 0;
+
+                        li {
+                            visibility: hidden;
+                            background-color: $lightGrey-color;
+                            padding: 5px;
+                            border-radius: 1px;
+                        }
+                    }
+
+                    &:hover {
+                        ul {
+                            li {
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
