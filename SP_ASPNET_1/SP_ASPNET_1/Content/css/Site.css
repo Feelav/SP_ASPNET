@@ -270,6 +270,10 @@ ul li .c-btn {
   background-color: #EAE7E8;
   text-align: center; }
 
+.product {
+  display: flex;
+  flex-flow: column nowrap; }
+
 img {
   vertical-align: middle; }
 
