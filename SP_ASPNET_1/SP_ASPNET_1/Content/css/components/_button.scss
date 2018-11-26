@@ -1,0 +1,16 @@
+﻿.c-btn {
+    padding: 10px 20px;
+    background-color: white;
+    height: 40px;
+    width: 160px;
+    border: 2px solid #cbb5bc;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $color-primary;
+    }
+}
+
+ul li .c-btn {
+    background-color: $color-accent;
+}
