@@ -270,6 +270,10 @@ ul li .c-btn {
   background-color: #EAE7E8;
   text-align: center; }
 
+.product {
+  display: flex;
+  flex-flow: column nowrap; }
+
 img {
   vertical-align: middle; }
 
@@ -277,6 +281,19 @@ img {
   display: flex;
   flex-flow: column nowrap;
   align-items: center; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8; }
+
+a {
+  text-decoration: none;
+  color: #7A6666; }
+  a:hover {
+    color: #C8C10D; }
+  a.active {
+    color: #E32A62; }
 
 aside {
   padding: 36px 0 34px;
@@ -317,16 +334,3 @@ footer > div {
       background-position: 0 -64px; }
     footer > div a.twitter {
       background-position: 0 -96px; }
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f8f8f8; }
-
-a {
-  text-decoration: none;
-  color: #7A6666; }
-  a:hover {
-    color: #C8C10D; }
-  a.active {
-    color: #E32A62; }

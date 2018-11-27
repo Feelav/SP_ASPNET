@@ -6,13 +6,16 @@ using System.Web.Mvc;
 
 namespace SP_ASPNET_1.Controllers
 {
+    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
+        [Route("~/", Name = "default")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Route("About")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,20 +23,8 @@ namespace SP_ASPNET_1.Controllers
             return View();
         }
 
+        [Route("Contact")]
         public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult Blog()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult SinglePost()
         {
             ViewBag.Message = "Your contact page.";
 

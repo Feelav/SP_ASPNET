@@ -1,0 +1,102 @@
+﻿using SP_ASPNET_1.DbFiles.Contexts;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Web;
+
+namespace SP_ASPNET_1.DbFiles.Repositories
+{
+    interface IRepository<T> where T : class
+    {
+        IQueryable<T> Entities { get; }
+        void Remove(T entity);
+        void Insert(T entity);
+        void Update(T entityToUpdate);
+        T GetByID(object ID);
+        IEnumerable<T> Get(
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>,
+            IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "");
+    }
+
+    public class SchoolRepository<T>: IRepository<T> where T : class
+    {
+        protected readonly SchoolProjectContext _context;
+
+        protected readonly DbSet<T> _dbSet;
+
+        public SchoolRepository(SchoolProjectContext context)
+        {
+            this._context = context;
+            this._dbSet = this._context.Set<T>();
+        }
+        public IQueryable<T> Entities => this._dbSet;
+
+        public void Insert(T entity)
+        {
+            this._dbSet.Add(entity);
+        }
+
+        public T GetByID(object ID)
+        {
+            return this._dbSet.Find(ID);
+        }
+
+        /// <summary>
+        /// Gets specific entities.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="orderBy">Entity property</param>
+        /// <param name="includeProperties">Comma separated property names.</param>
+        /// <code>"prop1, prop2"</code>
+        /// <returns></returns>
+        public IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T> , IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        {
+            IQueryable<T> query = Entities;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            else
+            {
+                return query.ToList();
+            }
+        }
+
+        public void Update(T entity)
+        {
+            this._dbSet.Attach(entity);
+            this._context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Remove(object ID)
+        {
+            T entitydeletionSubject = this._dbSet.Find(ID);
+            this._dbSet.Remove(entitydeletionSubject);
+        }
+
+        public void Remove(T entity)
+        {
+            if (this._context.Entry(entity).State == EntityState.Detached)
+            {
+                this._dbSet.Attach(entity);
+            }
+            this._dbSet.Remove(entity);
+        }
+    }
+}

@@ -1,0 +1,27 @@
+﻿@using SP_ASPNET_1.Models
+@using SP_ASPNET_1.BusinessLogic
+@model SP_ASPNET_1.ViewModels.BlogIndexViewModel
+
+@{
+    ViewBag.Title = "Blog";
+}
+
+<main>
+    <ul>
+        @foreach (BlogPost post in Model.BlogPosts)
+        {
+            <li>
+                @post.DateTime
+            <div class="Blog__Post-Preview">
+                <img src="@post.ImageUrl" alt="post image preview">
+                <div class="Post-Preview__Content">
+                    <h2>@post.Title</h2>
+                    <p>By @post.Author on @post.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+                    <br>
+                    <p>@post.Content.Substring(0, 200)...</p>
+                </div>
+            </div>
+        </li>
+    }
+    </ul>
+</main>
