@@ -15,6 +15,25 @@ img {
     align-items: center;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+a {
+    text-decoration: none;
+    color: $color-text;
+
+    &:hover {
+        color: $color-accent;
+    }
+
+    &.active {
+        color: $color-primary;
+    }
+}
+
 aside {
     padding: 36px 0 34px;
     line-height: 48px;
@@ -75,24 +94,3 @@ footer {
     }
   }
 }
-
-body {
-  margin: 0;
-  padding: 0;
-
-  background-color: #f8f8f8;
-}
-
-a {
-    text-decoration: none;
-    color: $color-text;
-
-    &:hover {
-        color: $color-accent;
-    }
-
-    &.active {
-        color: $color-primary;
-    }
-}
-
