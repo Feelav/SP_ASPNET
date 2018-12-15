@@ -10,9 +10,12 @@ namespace SP_ASPNET_1.DbFiles.UnitsOfWork
 {
     public class BlogUnitOfWork : IDisposable
     {
-        private SchoolProjectContext _context = new SchoolProjectContext();
-        private SchoolRepository<BlogPost> _blogPostSchoolRepository;
+        private readonly SchoolProjectContext _context = new SchoolProjectContext();
+
         private SchoolRepository<Author> _authorSchoolRepository;
+        private SchoolRepository<BlogPost> _blogPostSchoolRepository;
+        private SchoolRepository<ProductLine> _productLineSchoolRepository;
+        private SchoolRepository<ProductItem> _productItemSchoolRepository;
 
         public SchoolRepository<BlogPost> BlogPostSchoolRepository
         {
@@ -35,6 +38,30 @@ namespace SP_ASPNET_1.DbFiles.UnitsOfWork
                     this._authorSchoolRepository = new SchoolRepository<Author>(this._context);
                 }
                 return _authorSchoolRepository;
+            }
+        }
+
+        public SchoolRepository<ProductLine> ProductLineSchoolRepository
+        {
+            get
+            {
+                if (this._productLineSchoolRepository == null)
+                {
+                    this._productLineSchoolRepository = new SchoolRepository<ProductLine>(this._context);
+                }
+                return _productLineSchoolRepository;
+            }
+        }
+
+        public SchoolRepository<ProductItem> ProductItemSchoolRepository
+        {
+            get
+            {
+                if (this._productItemSchoolRepository == null)
+                {
+                    this._productItemSchoolRepository = new SchoolRepository<ProductItem>(this._context);
+                }
+                return _productItemSchoolRepository;
             }
         }
 

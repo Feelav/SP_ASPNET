@@ -1,0 +1,1 @@
+INSERT INTO Authors([Name], [Surname]) VALUES ('', '')

@@ -6,9 +6,8 @@ using SP_ASPNET_1.Models;
 
 namespace SP_ASPNET_1.ViewModels
 {
-    public class BlogIndexViewModel
+    public class HomeProductViewModel
     {
-        public IEnumerable<BlogPost> BlogPosts { get; set; }
-        public BlogPost RecentBlogPost { get; set; }
+        public IEnumerable<ProductLine> ProductLines { get; set; }
     }
 }

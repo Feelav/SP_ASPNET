@@ -16,5 +16,7 @@ namespace SP_ASPNET_1.DbFiles.Contexts
             
         public DbSet<Author> Authors { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<ProductLine> ProductLines { get; set; }
+        public DbSet<ProductItem> ProductItems { get; set; }
     }
 }

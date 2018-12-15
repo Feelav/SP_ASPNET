@@ -1,0 +1,49 @@
+﻿
+.Blog{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Blog__Posts {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    padding: 10px;
+}
+
+.Posts__Item {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.Post__Hr{
+
+}
+
+.Posts__Featured{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 620px;
+}
+
+.Posts__Recent {
+    width: 280px;
+    background-color: $gray;
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+    flex-flow: column nowrap;
+    &>*{
+        max-width: 200px;
+    }
+}
+
+.Blog__Post-Preview {
+}
+
+.Post__Image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}

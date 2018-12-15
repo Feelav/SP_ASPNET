@@ -1,9 +1,11 @@
-﻿.flier-picture {
+﻿.flier {
+    background-color: #f8f8f8;
+}
+.flier__picture {
     max-width: 1126px;
     margin: 0px auto;
     position: relative;
     text-align: center;
-
     & > a {
         &:hover {
             color: white;

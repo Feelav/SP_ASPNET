@@ -137,7 +137,8 @@
     <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DbFiles\Contexts\SchoolProjectContext.cs" />
-    <Compile Include="DbFiles\Repositories\BlogPostsRepository.cs" />
+    <Compile Include="DbFiles\Operations\BlogPostOperations.cs" />
+    <Compile Include="DbFiles\Operations\HomeOperations.cs" />
     <Compile Include="DbFiles\Repositories\SchoolRepository.cs" />
     <Compile Include="DbFiles\UnitsOfWork\BlogUnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,11 +148,18 @@
     <Compile Include="Migrations\201811271504123_InitialModel.Designer.cs">
       <DependentUpon>201811271504123_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811280841312_ProductPageModel.cs" />
+    <Compile Include="Migrations\201811280841312_ProductPageModel.Designer.cs">
+      <DependentUpon>201811280841312_ProductPageModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\BlogPost.cs" />
+    <Compile Include="Models\ProductItem.cs" />
+    <Compile Include="Models\ProductLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogIndexViewModel.cs" />
+    <Compile Include="ViewModels\HomeProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -166,22 +174,28 @@
     </Content>
     <Content Include="Content\css\Site.scss" />
     <Content Include="Content\css\base\_settings.scss" />
+    <Content Include="Content\css\vendor\_master.css">
+      <DependentUpon>_master.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\vendor\_master.min.css">
+      <DependentUpon>_master.css</DependentUpon>
+    </Content>
     <Content Include="Content\images\bg-header-about.jpg" />
     <Content Include="Content\images\bg-home.jpg" />
     <Content Include="Content\images\icons.png" />
     <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\posts\1.jpg" />
-    <Content Include="Content\images\posts\2.jpg" />
-    <Content Include="Content\images\posts\recent.jpg" />
-    <Content Include="Content\images\products\blackberry.png" />
-    <Content Include="Content\images\products\blueberry.png" />
-    <Content Include="Content\images\products\cantaloupe.png" />
-    <Content Include="Content\images\products\grapes.png" />
-    <Content Include="Content\images\products\green-apple.png" />
-    <Content Include="Content\images\products\kiwi.png" />
-    <Content Include="Content\images\products\mango.png" />
-    <Content Include="Content\images\products\pineapple.png" />
-    <Content Include="Content\images\products\strawberry.png" />
+    <Content Include="Content\images\posts\post-1.jpg" />
+    <Content Include="Content\images\posts\post-2.jpg" />
+    <Content Include="Content\images\posts\post-3.jpg" />
+    <Content Include="Content\images\products\blackberry.jpg" />
+    <Content Include="Content\images\products\blueberry.jpg" />
+    <Content Include="Content\images\products\cantaloupe.jpg" />
+    <Content Include="Content\images\products\grapes.jpg" />
+    <Content Include="Content\images\products\green-apple.jpg" />
+    <Content Include="Content\images\products\kiwi.jpg" />
+    <Content Include="Content\images\products\mango.jpg" />
+    <Content Include="Content\images\products\pineapple.jpg" />
+    <Content Include="Content\images\products\strawberry.jpg" />
     <Content Include="Content\images\yogurt.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -205,6 +219,7 @@
     <Content Include="Content\css\pages\master.scss" />
     <Content Include="Content\css\pages\_about.scss" />
     <Content Include="Content\css\pages\_product.scss" />
+    <Content Include="Content\css\pages\_blog.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -216,7 +231,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -233,6 +250,7 @@
     <Content Include="Views\Home\SinglePost.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\BlogPost\Index.cshtml" />
+    <Content Include="Views\BlogPost\SinglePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,6 +271,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811271504123_InitialModel.resx">
       <DependentUpon>201811271504123_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280841312_ProductPageModel.resx">
+      <DependentUpon>201811280841312_ProductPageModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
