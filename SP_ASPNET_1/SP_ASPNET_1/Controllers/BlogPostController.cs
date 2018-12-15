@@ -5,42 +5,57 @@ using System.Web;
 using System.Web.Mvc;
 using SP_ASPNET_1.DbFiles.UnitsOfWork;
 using SP_ASPNET_1.Models;
+using SP_ASPNET_1.DbFiles.Operations;
 using SP_ASPNET_1.ViewModels;
+using System.Threading.Tasks;
+using System.Web.Routing;
 
 namespace SP_ASPNET_1.Controllers
 {
     [RoutePrefix("Blog")]
-    public class BlogPostController : Controller
+    public class BlogPostController : AsyncController
     {
-        private BlogUnitOfWork _unitOfWork = new BlogUnitOfWork();
+        private readonly BlogPostOperations _blogPostOperations = new BlogPostOperations();
 
         [Route("")]
         [HttpGet]
-        public ActionResult Index()
+        public async void  IndexAsync()
         {
-            BlogIndexViewModel viewModel = new BlogIndexViewModel()
-            {
-                BlogPosts = _unitOfWork.BlogPostSchoolRepository.Get(null, null, "Author")
-            };
+            AsyncManager.OutstandingOperations.Increment();
 
-            return View(viewModel);
+            BlogIndexViewModel result = await this._blogPostOperations.GetBlogIndexViewModelAsync();
+
+            AsyncManager.Parameters["blogPostViewModel"] = result;
+            AsyncManager.OutstandingOperations.Decrement();
         }
 
-        //[Route("Detail/{int:id}")]
-        [HttpGet]
-        public ActionResult Detail()
+        public ActionResult IndexCompleted(BlogIndexViewModel blogPostViewModel)
         {
-            BlogPost blogPost = _unitOfWork.BlogPostSchoolRepository.Get(null,
-                x => x.OrderBy( entity => entity.DateTime))
-                .FirstOrDefault();
+            return View(blogPostViewModel);
+        }
+
+        [Route("Detail/{id:int?}")]
+        [HttpGet]
+        public ActionResult SinglePost(int? id)
+        {
+            BlogPost blogPost;
+
+            if (id == null)
+            {
+                blogPost = this._blogPostOperations.GetLatestBlogPost();
+            }
+            else
+            {
+                blogPost = this._blogPostOperations.GetBlogPostByIdD((int)id);
+            }
 
             return View(blogPost);
         }
-        //[Route("Detail/{int:id}")]
+        [Route("Detail/{id:int}")]
         [HttpGet]
         public ActionResult Detail(int id)
         {
-            BlogPost blogPost = _unitOfWork.BlogPostSchoolRepository.GetByID(id);
+            BlogPost blogPost = this._blogPostOperations.GetBlogPostByIdD(id);
 
             return View(blogPost);
         }
@@ -48,11 +63,11 @@ namespace SP_ASPNET_1.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(BlogPost blogPost)
         {
             try
             {
-                // TODO: Add insert logic here
+                this._blogPostOperations.Create(blogPost);
 
                 return RedirectToAction("Index");
             }
@@ -62,14 +77,14 @@ namespace SP_ASPNET_1.Controllers
             }
         }
 
-        //[Route("Edit/{int:id}")]
+        [Route("Edit/{id:int}")]
         [HttpGet]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        //[Route("Edit/{int:id}")]
+        [Route("Edit/{id:int}")]
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -85,14 +100,14 @@ namespace SP_ASPNET_1.Controllers
             }
         }
 
-        //[Route("delete/{int:id}")]
+        [Route("delete/{id:int}")]
         [HttpGet]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        //[Route("edit/{int:id}")]
+        [Route("edit/{id:int}")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

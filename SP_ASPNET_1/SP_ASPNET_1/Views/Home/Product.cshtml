@@ -1,33 +1,76 @@
-﻿<div class="product">
-    <div class="product-line">
+﻿@using SP_ASPNET_1.Models
+@model SP_ASPNET_1.ViewModels.HomeProductViewModel
+
+<div class="product">
+    @foreach (ProductLine productLine in Model.ProductLines)
+    {
+        <div class="product__edition-lineup">
+            <div>
+                <h2>@productLine.Title</h2>
+                <p>@productLine.Description</p>
+            </div>
+            @foreach (ProductItem productItem in productLine.ProductItems)
+            {
+                <div>
+                    <img src="@productItem.ImageURL" alt="@productItem.ImageAlt">
+                    <h2 class="h2--smaller">@productItem.Title</h2>
+                </div>
+            } 
+        </div>
+    }
+    @*<div class="product__edition-lineup">
         <div>
-            <h2></h2>
-            <p></p>
+            <h2>All Time Classic</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam animi nobis earum, quisquam facere aperiam maiores tempora modi</p>
         </div>
         <div>
-            <img src="" alt="">
-            <div></div>
+            <img src="~/Content/images/products/kiwi.jpg" alt="kiwi icecream">
+            <h2 class="h2--smaller">kiwi</h2>
+        </div>
+        <div>
+            <img src="~/Content/images/products/mango.jpg" alt="mango icecream">
+            <h2 class="h2--smaller">mango</h2>
+        </div>
+        <div>
+            <img src="~/Content/images/products/cantaloupe.jpg" alt="cantaloupe icecream">
+            <h2 class="h2--smaller">cantaloupe</h2>
         </div>
     </div>
-    <div class="product-line">
+    <div class="product__edition-lineup">
         <div>
-            <h2></h2>
-            <p></p>
+            <h2>Berry Special</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam animi nobis earum, quisquam facere aperiam maiores tempora modi</p>
         </div>
         <div>
-            <img src="" alt="">
-            <div></div>
-        </div>
-    </div>
-    <div class="product-line">
-        <div>
-            <h2></h2>
-            <p></p>
+            <img src="~/Content/images/products/blackberry.jpg" alt="blackberry icecream">
+            <h2 class="h2--smaller">blackberry</h2>
         </div>
         <div>
-            <img src="" alt="">
-            <div></div>
+            <img src="~/Content/images/products/strawberry.jpg" alt="strawberry icecream">
+            <h2 class="h2--smaller">strawberry</h2>
+        </div>
+        <div>
+            <img src="~/Content/images/products/blueberry.jpg" alt="blueberry icecreeam">
+            <h2 class="h2--smaller">blueberry</h2>
         </div>
     </div>
+    <div class="product__edition-lineup">
+        <div>
+            <h2>Fruit Blast</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam animi nobis earum, quisquam facere aperiam maiores tempora modi</p>
+        </div>
+        <div>
+            <img src="~/Content/images/products/grapes.jpg" alt="grape icecream">
+            <h2 class="h2--smaller">grape</h2>
+        </div>
+        <div>
+            <img src="~/Content/images/products/green-apple.jpg" alt="green apple icecream">
+            <h2 class="h2--smaller">green apple</h2>
+        </div>
+        <div>
+            <img src="~/Content/images/products/pineapple.jpg" alt="pineapple icecream">
+            <h2 class="h2--smaller">pineapple</h2>
+        </div>
+    </div>*@
 
 </div>

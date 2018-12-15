@@ -6,22 +6,39 @@
     ViewBag.Title = "Blog";
 }
 
-<main>
-    <ul>
-        @foreach (BlogPost post in Model.BlogPosts)
-        {
+<main class="Blog">
+    <h1 class="text--white">Blog</h1>
+    <div class="Blog__Posts">
+        <ul class="Posts__Featured">
+            @foreach (BlogPost post in Model.BlogPosts)
+            {
+                <li class="Posts__Item">
+                    <img src="@post.ImageUrl" alt="post image preview" class="Post__Image">
+                    <div class="Post-Preview__Content">
+                        <h2>@post.Title</h2>
+                        <p>By @post.Author on @post.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+                        <br>
+                        <p>@post.Content.Substring(0, 200)...</p>
+                    </div>
+                </li>
+                <li>
+                    <button href="@Html.Action("SinglePost", "BlogPost", new KeyValuePair<string, int>("id", post.BlogPostID))" class="c-btn">read more</button>
+                    <hr class="Post__Hr"/>
+                </li>
+                                           
+            }
             <li>
-                @post.DateTime
-            <div class="Blog__Post-Preview">
-                <img src="@post.ImageUrl" alt="post image preview">
-                <div class="Post-Preview__Content">
-                    <h2>@post.Title</h2>
-                    <p>By @post.Author on @post.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
-                    <br>
-                    <p>@post.Content.Substring(0, 200)...</p>
-                </div>
+                <button class="c-btn">load more</button>
+            </li>
+        </ul>
+        <div class="Posts__Recent">
+            <img src="@Model.RecentBlogPost.ImageUrl" alt="post image preview" class="Post__Image">
+            <div class="Post-Preview__Content">
+                <h2>@Model.RecentBlogPost.Title</h2>
+                <p>By @Model.RecentBlogPost.Author on @Model.RecentBlogPost.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+                <br>
+                <p>@Model.RecentBlogPost.Content.Substring(0, 200)...</p>
             </div>
-        </li>
-    }
-    </ul>
+        </div>
+    </div>
 </main>

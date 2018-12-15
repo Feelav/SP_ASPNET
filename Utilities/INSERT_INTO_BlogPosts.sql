@@ -1,0 +1,1 @@
+INSERT INTO BlogPosts([Title], [DateTime], [Content], [ImageUrl], [Author_AuthorID]) VALUES ('', '')

@@ -22,6 +22,9 @@ h2 {
   color: #E32A62;
   font-size: 28px; }
 
+.h2--smaller {
+  font-size: 20px; }
+
 h3 {
   color: #7A6666;
   text-transform: uppercase;
@@ -212,12 +215,15 @@ ul li .c-btn {
   .body__article__text-content h3 {
     margin: 47px 0 18px; }
 
-.flier-picture {
+.flier {
+  background-color: #f8f8f8; }
+
+.flier__picture {
   max-width: 1126px;
   margin: 0px auto;
   position: relative;
   text-align: center; }
-  .flier-picture > a {
+  .flier__picture > a {
     background: url(/Content/images/icons.png) no-repeat 0 -128px;
     position: absolute;
     color: #FFFFFF;
@@ -227,7 +233,7 @@ ul li .c-btn {
     width: 156px;
     bottom: 50px;
     right: 100px; }
-    .flier-picture > a:hover {
+    .flier__picture > a:hover {
       color: white; }
 
 .home__footer {
@@ -272,7 +278,62 @@ ul li .c-btn {
 
 .product {
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  /*width: 960px;*/ }
+
+.product__edition-lineup {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  /*div {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+    }*/ }
+  .product__edition-lineup > div {
+    margin: 0 10px; }
+  .product__edition-lineup h2:not(.h2--smaller) {
+    margin: 50px 0 0 0; }
+  .product__edition-lineup p {
+    width: 220px; }
+  .product__edition-lineup img {
+    width: 220px;
+    height: 245px; }
+
+.Blog {
+  display: flex;
   flex-flow: column nowrap; }
+
+.Blog__Posts {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding: 10px; }
+
+.Posts__Item {
+  display: flex;
+  flex-flow: row nowrap; }
+
+.Posts__Featured {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 620px; }
+
+.Posts__Recent {
+  width: 280px;
+  background-color: #EAE7E8;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-flow: column nowrap; }
+  .Posts__Recent > * {
+    max-width: 200px; }
+
+.Post__Image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; }
 
 img {
   vertical-align: middle; }
@@ -285,7 +346,7 @@ img {
 body {
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8; }
+  /*background-color: #f8f8f8;*/ }
 
 a {
   text-decoration: none;

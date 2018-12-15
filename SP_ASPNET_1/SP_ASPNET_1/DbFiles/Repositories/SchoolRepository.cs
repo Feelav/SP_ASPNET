@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace SP_ASPNET_1.DbFiles.Repositories
@@ -15,7 +16,7 @@ namespace SP_ASPNET_1.DbFiles.Repositories
         void Insert(T entity);
         void Update(T entityToUpdate);
         T GetByID(object ID);
-        IEnumerable<T> Get(
+        Task<IEnumerable<T>> GetAsync(
             Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>,
             IOrderedQueryable<T>> orderBy = null,
@@ -53,7 +54,32 @@ namespace SP_ASPNET_1.DbFiles.Repositories
         /// <param name="includeProperties">Comma separated property names.</param>
         /// <code>"prop1, prop2"</code>
         /// <returns></returns>
-        public IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T> , IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T> , IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        {
+            IQueryable<T> query = Entities;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
+        }
+
+        public IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
         {
             IQueryable<T> query = Entities;
 
