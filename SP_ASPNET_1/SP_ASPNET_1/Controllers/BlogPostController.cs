@@ -31,7 +31,7 @@ namespace SP_ASPNET_1.Controllers
 
         public ActionResult IndexCompleted(BlogIndexViewModel blogPostViewModel)
         {
-            return View(blogPostViewModel);
+            return this.View(blogPostViewModel);
         }
 
         [Route("Detail/{id:int?}")]
