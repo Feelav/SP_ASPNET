@@ -1,44 +1,29 @@
-﻿@using SP_ASPNET_1.Models
-@using SP_ASPNET_1.BusinessLogic
-@model SP_ASPNET_1.ViewModels.BlogIndexViewModel
+﻿@using SP_ASPNET_1.BusinessLogic
+@using SP_ASPNET_1.Models
+
 
 @{
-    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/Blog/_BlogLayout.cshtml";
 }
-
-<main class="Blog">
-    <h1 class="text--white">Blog</h1>
-    <div class="Blog__Posts">
-        <ul class="Posts__Featured">
-            @foreach (BlogPost post in Model.BlogPosts)
-            {
-                <li class="Posts__Item">
-                    <img src="@post.ImageUrl" alt="post image preview" class="Post__Image">
-                    <div class="Post-Preview__Content">
-                        <h2>@post.Title</h2>
-                        <p>By @post.Author on @post.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
-                        <br>
-                        <p>@post.Content.Substring(0, 200)...</p>
-                    </div>
-                </li>
-                <li>
-                    <button href="@Html.Action("SinglePost", "BlogPost", new KeyValuePair<string, int>("id", post.BlogPostID))" class="c-btn">read more</button>
-                    <hr class="Post__Hr"/>
-                </li>
-                                           
-            }
-            <li>
-                <button class="c-btn">load more</button>
-            </li>
-        </ul>
-        <div class="Posts__Recent">
-            <img src="@Model.RecentBlogPost.ImageUrl" alt="post image preview" class="Post__Image">
+<ul class="Posts__Featured">
+    @foreach (BlogPost post in Model.BlogPosts)
+    {
+        <li class="Posts__Item">
+            <img src="@post.ImageUrl" alt="post image preview" class="Post__Image">
             <div class="Post-Preview__Content">
-                <h2>@Model.RecentBlogPost.Title</h2>
-                <p>By @Model.RecentBlogPost.Author on @Model.RecentBlogPost.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+                <h2>@post.Title</h2>
+                <p>By @post.Author on @post.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
                 <br>
-                <p>@Model.RecentBlogPost.Content.Substring(0, 200)...</p>
+                <p>@post.Content.Substring(0, 200)...</p>
             </div>
-        </div>
-    </div>
-</main>
+        </li>
+        <li class="Posts__Item__Link">
+            <button onClick="location.href='@Url.Action("SinglePost", new { id = @post.BlogPostID})'" class="c-btn">read more</button>
+            <hr class="Post__Hr" />
+        </li>
+
+    }
+    <li>
+        <button class="c-btn">load more</button>
+    </li>
+</ul>

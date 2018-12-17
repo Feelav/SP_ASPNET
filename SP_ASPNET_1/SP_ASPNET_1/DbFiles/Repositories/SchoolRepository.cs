@@ -9,7 +9,7 @@ using System.Web;
 
 namespace SP_ASPNET_1.DbFiles.Repositories
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IQueryable<T> Entities { get; }
         void Remove(T entity);
@@ -17,6 +17,12 @@ namespace SP_ASPNET_1.DbFiles.Repositories
         void Update(T entityToUpdate);
         T GetByID(object ID);
         Task<IEnumerable<T>> GetAsync(
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>,
+            IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "");
+
+        IEnumerable<T> Get(
             Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>,
             IOrderedQueryable<T>> orderBy = null,

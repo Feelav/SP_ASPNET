@@ -1,50 +1,24 @@
-﻿@model SP_ASPNET_1.Models.BlogPost
+﻿@using SP_ASPNET_1.BusinessLogic
+@model SP_ASPNET_1.Models.BlogPost
 
-@{
+@*@{
     ViewBag.Title = "SinglePost";
+}*@
+@{
+    Layout = "~/Views/Shared/Blog/_BlogLayout.cshtml";
 }
 
-<h2>SinglePost</h2>
-
-<div>
-    <h4>BlogPost</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-    </dl>
+<div class="SinglePost">
+    <img src="@Model.ImageUrl" alt="@Path.GetFileNameWithoutExtension(Model.ImageUrl)" />
+    <h2>new chills for summer</h2>
+    <p>By @Model.Author on @Model.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+    <p>
+        @Model.Content
+    </p>
+    <p>
+        @Html.ActionLink("Edit", "EditBlogPost", new { id = Model.BlogPostID }) |
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Delete", "EditBlogPost", new { id = Model.BlogPostID }) |
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

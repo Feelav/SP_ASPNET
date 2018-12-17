@@ -20,13 +20,13 @@
                     <li>
                         <a href="@Url.Action("About", "Home")" class="@(@Html.IsActive("Home", "About"))">ABOUT</a>
                         <ul>
-                            <li><a href="@Url.Action("Product", "Home")">PRODUCT</a></li>
+                            <li><a href="@Url.Action("Product", "Home")" class="@(@Html.IsActive("Home", "Product"))">PRODUCT</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "BlogPost")" class="@(@Html.IsActive("Blog", "Index"))">BLOG</a>
                         <ul>
-                            <li><a href="@Url.Action("Index", "BlogPost")" class="@(@Html.IsActive("Blog", "Detail"))">SINGLE POST</a></li>
+                            <li><a href="@Url.Action("RandomPost", "BlogPost")" class="@(@Html.IsActive("Blog", "SinglePost"))">SINGLE POST</a></li>
                         </ul>
                     </li>
                     <li><a href="@Url.Action("Contact", "Home")" class="@(@Html.IsActive("Home", "Contact"))">CONTACT</a></li>

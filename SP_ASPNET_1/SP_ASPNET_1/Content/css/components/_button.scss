@@ -7,10 +7,21 @@
     text-transform: uppercase;
 
     &:hover {
-        background-color: $color-primary;
+        /*background-color: $color-primary;*/
+        cursor: pointer;
     }
+    color: $kiwi;
+}
+
+.c-btn--white {
+    background-color: white;
+}
+
+.c-btn--dark {
+    background-color: $gray;
+    color: $darkGray
 }
 
 ul li .c-btn {
-    background-color: $color-accent;
+    color: $color-accent;
 }

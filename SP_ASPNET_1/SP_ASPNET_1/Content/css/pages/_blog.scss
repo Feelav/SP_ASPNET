@@ -15,12 +15,27 @@
     display: flex;
     flex-flow: row nowrap;
 }
+.Posts__Item__Link{
+    text-align: center;
+}
 
-.Post__Hr{
-
+.Post__Hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 .Posts__Featured{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 620px;
+    list-style: none;
+    li{
+        margin-right: 10px;
+    }
+}
+.SinglePost {
     display: flex;
     flex-flow: column nowrap;
     max-width: 620px;
@@ -46,4 +61,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    margin-right: 30px;
 }
+
+
