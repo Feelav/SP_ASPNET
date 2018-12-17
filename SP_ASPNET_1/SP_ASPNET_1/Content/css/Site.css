@@ -33,6 +33,9 @@ h3 {
 .text--white {
   color: #FFFFFF; }
 
+.text--gray {
+  color: #EAE7E8; }
+
 .title {
   margin-bottom: 21px; }
 
@@ -156,12 +159,21 @@ img {
   height: 40px;
   width: 160px;
   border: 2px solid #cbb5bc;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #C8C10D; }
   .c-btn:hover {
-    background-color: #E32A62; }
+    /*background-color: $color-primary;*/
+    cursor: pointer; }
+
+.c-btn--white {
+  background-color: white; }
+
+.c-btn--dark {
+  background-color: #EAE7E8;
+  color: #7A6666; }
 
 ul li .c-btn {
-  background-color: #C8C10D; }
+  color: #C8C10D; }
 
 .header {
   padding: 41px 10px 27px;
@@ -229,7 +241,7 @@ ul li .c-btn {
     color: #FFFFFF;
     font-size: 24px;
     padding: 52px 0 0;
-    height: 99px;
+    height: 156px;
     width: 156px;
     bottom: 50px;
     right: 100px; }
@@ -315,7 +327,24 @@ ul li .c-btn {
   display: flex;
   flex-flow: row nowrap; }
 
+.Posts__Item__Link {
+  text-align: center; }
+
+.Post__Hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc); }
+
 .Posts__Featured {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 620px;
+  list-style: none; }
+  .Posts__Featured li {
+    margin-right: 10px; }
+
+.SinglePost {
   display: flex;
   flex-flow: column nowrap;
   max-width: 620px; }
@@ -333,7 +362,60 @@ ul li .c-btn {
 .Post__Image {
   width: 200px;
   height: 200px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  margin-right: 30px; }
+
+.Contact__Header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  background: url(../../images/map.jpg) no-repeat center top #b5aaad; }
+  .Contact__Header img {
+    width: 66px;
+    height: 105px;
+    margin-right: 30px; }
+
+.Contact__Header__Content {
+  max-width: 510px; }
+
+.Contact__Form {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-start;
+  /*padding-bottom: 200px;*/ }
+  .Contact__Form form {
+    padding: 30px;
+    /*& > * {
+            width: 100%;
+        }*/ }
+    .Contact__Form form h2 {
+      margin-bottom: 40px;
+      margin-top: 0; }
+    .Contact__Form form .form-group, .Contact__Form form textarea {
+      width: 100%; }
+    .Contact__Form form textarea {
+      outline: none; }
+    .Contact__Form form .form-group {
+      height: 2em; }
+      .Contact__Form form .form-group > input {
+        width: inherit;
+        height: inherit; }
+    .Contact__Form form button {
+      color: #7A6666; }
+  .Contact__Form aside {
+    margin-top: 30px;
+    padding: 10px 0; }
+  .Contact__Form aside {
+    width: 280px;
+    background-color: #EAE7E8;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-flow: column nowrap;
+    line-height: 30px; }
 
 img {
   vertical-align: middle; }

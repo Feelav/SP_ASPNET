@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SP_ASPNET_1.Models;
 
 namespace SP_ASPNET_1.BusinessLogic
 {
@@ -47,6 +48,15 @@ namespace SP_ASPNET_1.BusinessLogic
 
             return acceptedActions.Contains(currentAction) && acceptedControllers.Contains(currentController) ?
                 cssClass : String.Empty;
+        }
+
+        public static IEnumerable<BlogPost> IncludeImagePrefix(this IEnumerable<BlogPost> blogPosts, string prefix)
+        {
+            return blogPosts.Select(x =>
+            {
+                x.ImageUrl = prefix + x.ImageUrl;
+                return x;
+            });
         }
     }
 }

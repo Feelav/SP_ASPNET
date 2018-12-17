@@ -9,7 +9,7 @@ namespace SP_ASPNET_1.DbFiles.Operations
 {
     public class HomeOperations
     {
-        private BlogUnitOfWork _unitOfWork = new BlogUnitOfWork();
+        private SchoolUnitOfWork _unitOfWork = new SchoolUnitOfWork();
 
         public HomeProductViewModel GetHomeProductViewModel()
         {

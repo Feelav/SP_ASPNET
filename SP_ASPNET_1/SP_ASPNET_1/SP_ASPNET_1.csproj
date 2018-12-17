@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DbFiles\Repositories\RepositoryDecorators\BlogPostSchoolRepositoryDecorator.cs" />
     <Compile Include="BusinessLogic\Constants.cs" />
     <Compile Include="BusinessLogic\StaticHelpers.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
@@ -140,7 +141,7 @@
     <Compile Include="DbFiles\Operations\BlogPostOperations.cs" />
     <Compile Include="DbFiles\Operations\HomeOperations.cs" />
     <Compile Include="DbFiles\Repositories\SchoolRepository.cs" />
-    <Compile Include="DbFiles\UnitsOfWork\BlogUnitOfWork.cs" />
+    <Compile Include="DbFiles\UnitsOfWork\SchoolUnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,7 +160,9 @@
     <Compile Include="Models\ProductLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogIndexViewModel.cs" />
+    <Compile Include="ViewModels\BlogSinglePostViewModel.cs" />
     <Compile Include="ViewModels\HomeProductViewModel.cs" />
+    <Compile Include="ViewModels\IBlogViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -182,8 +185,10 @@
     </Content>
     <Content Include="Content\images\bg-header-about.jpg" />
     <Content Include="Content\images\bg-home.jpg" />
+    <Content Include="Content\images\check-in.png" />
     <Content Include="Content\images\icons.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\map.jpg" />
     <Content Include="Content\images\posts\post-1.jpg" />
     <Content Include="Content\images\posts\post-2.jpg" />
     <Content Include="Content\images\posts\post-3.jpg" />
@@ -220,6 +225,7 @@
     <Content Include="Content\css\pages\_about.scss" />
     <Content Include="Content\css\pages\_product.scss" />
     <Content Include="Content\css\pages\_blog.scss" />
+    <Content Include="Content\css\pages\_contact.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -251,6 +257,10 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\BlogPost\Index.cshtml" />
     <Content Include="Views\BlogPost\SinglePost.cshtml" />
+    <Content Include="Views\BlogPost\EditBlogPost.cshtml" />
+    <Content Include="Views\Shared\Blog\_BlogLayout.cshtml" />
+    <Content Include="Views\BlogPost\_BlogPostRecentPartialView.cshtml" />
+    <Content Include="Views\BlogPost\RandomPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

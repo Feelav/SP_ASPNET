@@ -1,0 +1,13 @@
+﻿@using SP_ASPNET_1.BusinessLogic
+@model SP_ASPNET_1.Models.BlogPost
+
+<div class="Posts__Recent">
+    <img src="@Model.ImageUrl" alt="post image preview" class="Post__Image">
+    <div class="Post-Preview__Content">
+        <h2>@Model.Title</h2>
+        <p>By @Model.Author on @Model.DateTime.ToString(Constants.DISPLAY_DATETIME_FORMAT)</p>
+        <br>
+        <p>@Model.Content.Substring(0, 50)...</p>
+        <button onClick="location.href='@Url.Action("SinglePost", new { id = Model.BlogPostID})'" class="c-btn c-btn--dark">read more</button>
+    </div>
+</div>

@@ -1,43 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using SP_ASPNET_1.DbFiles.UnitsOfWork;
+﻿using SP_ASPNET_1.DbFiles.Operations;
 using SP_ASPNET_1.Models;
-using SP_ASPNET_1.DbFiles.Operations;
 using SP_ASPNET_1.ViewModels;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Web.Routing;
+using SP_ASPNET_1.BusinessLogic;
 
 namespace SP_ASPNET_1.Controllers
 {
     [RoutePrefix("Blog")]
-    public class BlogPostController : AsyncController
+    public class BlogPostController : Controller
     {
         private readonly BlogPostOperations _blogPostOperations = new BlogPostOperations();
 
         [Route("")]
         [HttpGet]
-        public async void  IndexAsync()
+        public ActionResult Index()
         {
-            AsyncManager.OutstandingOperations.Increment();
-
-            BlogIndexViewModel result = await this._blogPostOperations.GetBlogIndexViewModelAsync();
-
-            AsyncManager.Parameters["blogPostViewModel"] = result;
-            AsyncManager.OutstandingOperations.Decrement();
+            //return this.View();
+            BlogIndexViewModel result = this._blogPostOperations.GetBlogIndexViewModel();
+            ViewBag.Title = "Blog";
+            return this.View(result);
         }
 
-        public ActionResult IndexCompleted(BlogIndexViewModel blogPostViewModel)
-        {
-            return this.View(blogPostViewModel);
-        }
 
         [Route("Detail/{id:int?}")]
         [HttpGet]
         public ActionResult SinglePost(int? id)
         {
+            ViewBag.Title = "single post";
+
             BlogPost blogPost;
 
             if (id == null)
@@ -51,14 +42,40 @@ namespace SP_ASPNET_1.Controllers
 
             return View(blogPost);
         }
-        [Route("Detail/{id:int}")]
+
+        [Route("Detail/Random")]
         [HttpGet]
-        public ActionResult Detail(int id)
+        public ActionResult RandomPost()
         {
-            BlogPost blogPost = this._blogPostOperations.GetBlogPostByIdD(id);
+            ViewBag.Title = "single post";
+
+            BlogPost blogPost;
+
+            blogPost = this._blogPostOperations.GetRandomBlogPost();
 
             return View(blogPost);
         }
+
+        [Route("LatestPost")]
+        [HttpGet]
+        public ActionResult LatestPost()
+        {
+
+            BlogPost blogPost;
+
+            blogPost = this._blogPostOperations.GetLatestBlogPost();
+
+            return this.PartialView("~/Views/BlogPost/_BlogPostRecentPartialView.cshtml", blogPost);
+        }
+
+        //[Route("Detail/{id:int}")]
+        //[HttpGet]
+        //public ActionResult Detail(int id)
+        //{
+        //    BlogPost blogPost = this._blogPostOperations.GetBlogPostByIdD(id);
+
+        //    return View(blogPost);
+        //}
 
 
         [Route("Create")]
@@ -77,11 +94,15 @@ namespace SP_ASPNET_1.Controllers
             }
         }
 
-        [Route("Edit/{id:int}")]
+        [Route("Edit/{id:int?}")]
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult EditBlogPost(int id)
         {
-            return View();
+            BlogPost blogPost;
+
+            blogPost = this._blogPostOperations.GetBlogPostByIdD((int)id);
+
+            return View(blogPost);
         }
 
         [Route("Edit/{id:int}")]
@@ -100,27 +121,36 @@ namespace SP_ASPNET_1.Controllers
             }
         }
 
-        [Route("delete/{id:int}")]
+        [Route("Delete/{id:int}")]
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        [Route("edit/{id:int}")]
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
+                this._blogPostOperations.Delete(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return this.HttpNotFound();
             }
         }
+
+        //[Route("edit/{id:int}")]
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

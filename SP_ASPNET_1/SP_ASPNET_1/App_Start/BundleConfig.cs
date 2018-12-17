@@ -23,7 +23,7 @@ namespace SP_ASPNET_1
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                     //"~/Content/bootstrap.css",
+                     "~/Content/bootstrap.css",
                      "~/Content/css/site.min.css"));
         }
     }

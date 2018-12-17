@@ -8,28 +8,35 @@ using SP_ASPNET_1.Models;
 
 namespace SP_ASPNET_1.DbFiles.UnitsOfWork
 {
-    public class BlogUnitOfWork : IDisposable
+    public interface ISchoolUnitOfWork
+    {
+        IRepository<BlogPost> BlogPostSchoolRepository { get; }
+        IRepository<Author> AuthorSchoolRepository { get; }
+        IRepository<ProductLine> ProductLineSchoolRepository { get; }
+        IRepository<ProductItem> ProductItemSchoolRepository { get; }
+    }
+    public class SchoolUnitOfWork : ISchoolUnitOfWork, IDisposable
     {
         private readonly SchoolProjectContext _context = new SchoolProjectContext();
 
-        private SchoolRepository<Author> _authorSchoolRepository;
-        private SchoolRepository<BlogPost> _blogPostSchoolRepository;
-        private SchoolRepository<ProductLine> _productLineSchoolRepository;
-        private SchoolRepository<ProductItem> _productItemSchoolRepository;
+        private IRepository<Author> _authorSchoolRepository;
+        private IRepository<BlogPost> _blogPostSchoolRepository;
+        private IRepository<ProductLine> _productLineSchoolRepository;
+        private IRepository<ProductItem> _productItemSchoolRepository;
 
-        public SchoolRepository<BlogPost> BlogPostSchoolRepository
+        public IRepository<BlogPost> BlogPostSchoolRepository
         {
             get
             {
                 if (this._blogPostSchoolRepository == null)
                 {
-                    this._blogPostSchoolRepository = new SchoolRepository<BlogPost>(this._context);
+                    this._blogPostSchoolRepository = new BlogPostSchoolRepositoryDecorator(new SchoolRepository<BlogPost>(this._context));
                 }
                 return _blogPostSchoolRepository;
             }
         }
 
-        public SchoolRepository<Author> AuthorSchoolRepository
+        public IRepository<Author> AuthorSchoolRepository
         {
             get
             {
@@ -41,7 +48,7 @@ namespace SP_ASPNET_1.DbFiles.UnitsOfWork
             }
         }
 
-        public SchoolRepository<ProductLine> ProductLineSchoolRepository
+        public IRepository<ProductLine> ProductLineSchoolRepository
         {
             get
             {
@@ -53,7 +60,7 @@ namespace SP_ASPNET_1.DbFiles.UnitsOfWork
             }
         }
 
-        public SchoolRepository<ProductItem> ProductItemSchoolRepository
+        public IRepository<ProductItem> ProductItemSchoolRepository
         {
             get
             {
